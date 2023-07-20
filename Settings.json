@@ -1,0 +1,31 @@
+{
+    "video_description":"Music provided by TakeTones. Free Download Music: https://taketones.com/search/free-music #Shorts", <--- just use an ai now lol
+    "channel_topics": [
+        {
+            "Sad Fact":          ["City", "Book", "Water"],
+            "Fitness Fact":      ["Nature", "Book", "Water"],
+            "Environment Fact":  ["Nature", "Fitness", "City"],
+            "Politics Fact":     ["Nature", "Book", "City"],
+            "Economics Fact":    ["Nature", "Book", "City"],
+            "Business Fact":     ["Nature", "Book", "City"],
+            "Law Fact":          ["Nature", "Book", "City"],
+            "Music Fact":        ["Nature", "Book", "City"],
+            "Art Fact":          ["Nature", "Book", "City"],
+            "Culture Fact":      ["Nature", "Book", "City"],
+            "Fashion Fact":      ["Nature", "Book", "City"],
+            "Travel Fact":       ["Nature", "Water", "City"],
+            "Boyfriend Fact":    ["Nature", "Fitness", "Girl"],
+            "Girlfriend Fact":   ["Nature", "Fitness", "Girl"],
+            "Girl Fact":         ["Nature", "Fitness", "Girl"],
+            "Boy Fact":          ["Nature", "Fitness", "Girl"],
+            "Social media Fact": ["City", "Book", "Water"],
+            "Internet Fact":     ["City", "Book", "Water"],
+            "Mindfulness Fact":  ["Nature", "Book", "Water"],
+            "Happiness Fact":    ["Nature", "Book", "Water"],
+            "Productivity Fact": ["Nature", "Book", "City"],
+            "Motivation Fact":   ["Nature", "Book", "Water"],
+            "Leadership Fact":   ["Nature", "City", "Water"]
+        }
+    ]
+}
+  
