@@ -4,17 +4,13 @@ import json
 phoneheight = 1920
 phonewidth = 1080
 videoLength = 6
-horoscopeVideoLength = 10
 
-pathToFiles = src of files
+pathToVideos = '' # TODO: the path to your folder of videos for backround
 
-# the path to your folder of videos for backround
-pathToVideos = end of src file here
+client_file = '' # TODO: add path to the json file for your oath youtube key
 
-# the path to the json file for your oath youtube key
-client_file = end of src file here
-
-# background music
-pathToMusic = end of src file here
+pathToMusic = '' # TODO: add path to background music
 
 videoDescription = "#shorts"
+
+pathToGpt4all = '' # TODO: add path to gpt4all .bin file

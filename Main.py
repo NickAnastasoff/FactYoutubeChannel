@@ -3,17 +3,35 @@ import sys
 import cv2
 import random
 import moviepy.editor as mp
-from VideoProccessing import textBox
 import os
 from gpt4allj import Model
-model = Model(add model path here)
-from Youtube import upload
-from Constants import *
+model = Model(pathToGpt4all)
+from youtube import upload
+from constants import *
 
 music = mp.AudioFileClip(f"{pathToMusic}/{(random.choice([f for f in os.listdir(pathToMusic) if not f.endswith('.DS_Store')]))}")
 
+
+def textBox(text, fontsize, backOpacity, y, width, height, duration, startTime, w, h, Ratio):
+        # Create a text clip
+        text_clip = mp.TextClip(text, font='Amiri-regular', color='white', fontsize=fontsize * Ratio, size=((phonewidth-width) * Ratio, (height) * Ratio), method='caption')
+
+        # Add a background color to the text clip
+        text_clip = text_clip.on_color(size=(text_clip.w, text_clip.h+20), color=(0,0,0), pos=(0,'center'), col_opacity=backOpacity)
+
+        # Move the text clip to the desired position
+        text_clip = text_clip.set_pos(lambda t: ((w-text_clip.w)/2, (h-text_clip.h)/y))
+
+        # Set the duration of the text clip
+        text_clip = text_clip.set_duration(duration)
+
+        # Set the start time of the text clip
+        text_clip = text_clip.set_start(startTime)
+
+        return text_clip
+
 while True:
-    with open('Settings.json') as json_file:
+    with open('settings.json') as json_file:
         data = json.load(json_file)
         channel_topics = data['channel_topics'][0]
         random_topic = random.choice(list(channel_topics.keys()))
@@ -28,10 +46,24 @@ while True:
     # get the video file
     videoFile = random.choice(os.listdir(pathToVideos))
     openingPrompt = 'Psychology Fact: Did you know that according to psychology, people who talk to themselves...STOP Sports fact: Only one sport has been played on the moon...STOP Productivity Fact: The most most productive day of the week is...STOP ' + str(random_topic) + ':'
-    openingText = model.generate(openingPrompt)
+    openingText = model.generate(openingPrompt,
+               seed=-1,
+               n_threads=-1,
+               n_predict=50,
+               top_k=40,
+               top_p=0.9,
+               temp=.7,
+               n_batch=8)
     openingText = openingText[:openingText.find("STO")]
     endingPrompt = 'Psychology Fact: Did you know that according to psychology, people who talk to themselves...  ending text: are more likely to have a high IQ. Talking to yourself makes your brain work more efficiently, and can help control emotions!STOP Sports fact: Only one sport has been played on the moon... ending text: 50 years ago, Alan Shepardan, an Apollo 14 astronaut, played golf on the moon, and he hit over 10 miles!STOP Productivity Fact: The most most productive day of the week is... ending text: Thursday! After 40 hours of work per week, productivity decreases by 50%, and who really feels productive on Monday?STOP ' + str(random_topic) + ': ' + openingText + 'ending text:'
-    endingText = model.generate(endingPrompt)
+    endingText = model.generate(endingPrompt,
+               seed=-1,
+               n_threads=-1,
+               n_predict=50,
+               top_k=40,
+               top_p=0.9,
+               temp=.7,
+               n_batch=8)
     Title = str(random_topic).upper()
 
     print("video title: " + Title)
