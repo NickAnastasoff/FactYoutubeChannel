@@ -1,9 +1,8 @@
 # FactYoutubeChannel
 automate a youtube shorts channel with llms
 
-setup:
-you will need to set up a llm (i used gpt4all-j)
-you will need a youtube api key
-you will need video and audio files
+# Example 
+https://www.youtube.com/shorts/89I3skH0UEc
 
-then you can just splice in code to work for your needs
+# Instructions
+you will need a google client file with youtube enabled, gpt4all-j installed, stock music and videos for background. then just change constants.py to use your client file and gpt4all path
